@@ -1,0 +1,35 @@
+1. Did you attempt to make your computer player very smart 
+-- i.e., do something more clever than just pick a random legal move?
+    Yes, I did. 
+
+2. If so, were you able to accomplish this? Is your computer player as smart as you would like?
+    So far, the AI is smart enough to find the competitive spot to place the stone,
+    but it's not very defensive and just focuses on itself. So ideally, I think I would prefer
+    it to be more competitive. 
+
+3. How did you determine which piece to play next? Tell us about your “pick next move” algorithm
+    The algorithm I used has the following steps:
+    1) For each empty spot, the AI will take it as a possible move and then evaluate the board.
+    2) There are functions to check the board after an AI stone is placed at the possible spot
+       in four directions (horizontally, vertically, and diagonally). 
+    3) In each direction, the AI will count the total number of both stones every five spots in a line. 
+       Then, it will compare the total number of white stones and black stones and score the spot for
+       the number of five-in-row, four-in-row, three-in-row, and two-in-row. 
+    4) Besides that, I also design a function to give a neighbor score, which will let the AI place stones
+       at the spot that already has stones around. 
+    5) After scoring every possible spot, it will sort and return the coord with the highest total score. 
+
+4. How often did your computer program beat you, or your friends, or whoever tested it out for you?
+    If the human focuses on himself or herself, given the advantage that the black stone goes first, the
+    human can often win AI player at an early stage. However, the longer the game continues, it is more
+    likely that the AI will win eventually. 
+
+5. How easy would it be to make the difficulty level adjustable?
+    It's quite easy to change the difficulty level, because the score of each pattern (e.g., five-in-row)
+    is stored in __init__, we can easily change that to give different weights of the pattern. Similarly, we
+    can edit the neighbor score method as well, such as changing the score weights or even deleting it. 
+
+6. How would you improve it in the future?
+    In the future, it would be better if the algorithm can take the possible moves of the human player 
+    into account. Moreover, if it can make the number of future moves assessed as a variable such as
+    depth level, the difficulty level can be adjusted more smoothly and quantitively. 
